@@ -1,3 +1,11 @@
+<?php 
+require_once './database/bd.php';
+
+$stmt = $pdo->prepare("SELECT nom,race,photo FROM chiens WHERE etat = 1 ORDER BY RAND() LIMIT 10");
+$stmt->execute();
+$chiens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,11 +40,30 @@
         </div>
       </section>
       <section class="carousel-section">
+        <h2>Les chiens à adopté</h2>
+
+        <div class="carousel-wrapper">
+          <button class="carousel-btn left"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="carousel" id="carousel">
+            <?php foreach ($chiens as $chien): ?>
+              <div class="carousel-item">
+                <img src="./assets/uploads/<?= htmlspecialchars($chien['photo']) ?>" alt="<?= htmlspecialchars($chien['nom']) ?>" />
+                <div class="info">
+                  <h3><?=htmlspecialchars($chien['nom']) ?></h3>
+                  <p><?=htmlspecialchars($chien['race'])?></p>
+                </div>
+              </div>
+            <?php endforeach?>
+          </div>
+          <button class="carousel-btn right"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
       </section>
     </main>
     <?php include './include/footer.php'?>
-    <script src="assets/js/nav-togle.js"></script>
-    <script src="assets/js/search-togle.js"></script>
-    <script src="assets/js/dark-mode.js"></script>
+    <script src="./assets/js/nav-togle.js"></script>
+    <script src="./assets/js/search-togle.js"></script>
+    <script src="./assets/js/dark-mode.js"></script>
+    <script src="./assets/js/carousel.js"></script>
+
   </body>
 </html>

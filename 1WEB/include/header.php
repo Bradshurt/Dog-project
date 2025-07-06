@@ -1,3 +1,6 @@
+<?php 
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <header class="content-nav">
   <div class="contrainer-header">
     <div class="button">
@@ -12,13 +15,13 @@
       <nav class="nav-bar">
         <div class="list-all">
           <div class="nav-list">
-            <a href="#" class="nav-link">Accueil</a>
+            <a href="../index.php" class="nav-link<?php if($currentPage == 'index.php') echo ' active';?>">Accueil</a>
           </div>
           <div class="nav-list">
-            <a href="#" class="nav-link">Adoption</a>
+            <a href="/1WEB/pages/Adoption.php" class="nav-link<?php if($currentPage == 'Adoption.php') echo ' active';?>">Adoption</a>
           </div>
           <div class="nav-list">
-            <a href="#" class="nav-link">L'Association</a>
+            <a href="/1WEB/pages/lassociation.php" class="nav-link<?php if($currentPage == 'lassociation.php') echo ' active';?>">L'Association</a>
           </div>
         </div>
         <div class="search-container">

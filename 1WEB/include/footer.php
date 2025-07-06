@@ -15,9 +15,9 @@
     <div class="footer-section">
       <h3>Liens rapides</h3>
       <div class="footer-link">
-        <a href="#">Accueil</a>
-        <a href="#">Adoption</a>
-        <a href="#">L'Association</a>
+        <a href="../index.php">Accueil</a>
+        <a href="/1WEB/pages/Adoption.php">Adoption</a>
+        <a href="/1WEB/pages/lassociation.php">L'Association</a>
       </div>
     </div>
     <div class="footer-section">
